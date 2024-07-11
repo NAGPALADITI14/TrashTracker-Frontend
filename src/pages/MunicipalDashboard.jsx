@@ -12,7 +12,7 @@ const MunicipalDashboard = ({ token }) => {
     useEffect(() => {
         const fetchReports = async () => {
             try {
-                const response = await axios.get('http://localhost:2000/api/municipal/reports', {
+                const response = await axios.get('https://trash-tracker-backend.vercel.app/api/municipal/reports', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 setReports(response.data);
@@ -54,7 +54,7 @@ const MunicipalDashboard = ({ token }) => {
     const handleUpdate = async () => {
         if (!selectedReport) return;
         try {
-            await axios.put(`http://localhost:2000/api/garbage-report/${selectedReport._id}/status`, {
+            await axios.put(`https://trash-tracker-backend.vercel.app/api/garbage-report/${selectedReport._id}/status`, {
                 status,
                 estimatedCompletionTime
             }, {
@@ -71,7 +71,7 @@ const MunicipalDashboard = ({ token }) => {
 
     const handleDelete = async (reportId) => {
         try {
-            await axios.delete(`http://localhost:2000/api/garbage-report/${reportId}`, {
+            await axios.delete(`https://trash-tracker-backend.vercel.app/api/garbage-report/${reportId}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             setMessage('Report deleted successfully!');

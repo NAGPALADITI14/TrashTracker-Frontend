@@ -41,7 +41,7 @@ const AuthPage = ({ setToken }) => {
         const isValid = validate();
         if (isValid) {
             try {
-                const url = isLogin ? 'http://localhost:2000/api/login' : 'http://localhost:2000/api/register';
+                const url = isLogin ? 'https://trash-tracker-backend.vercel.app/api/login' : 'https://trash-tracker-backend.vercel.app/api/register';
                 const response = await axios.post(url, { email, password, role });
                 if (isLogin) {
                     const token = response.data.token;

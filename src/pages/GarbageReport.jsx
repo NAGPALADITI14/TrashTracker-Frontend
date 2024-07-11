@@ -75,7 +75,7 @@ const GarbageReport = ({ token }) => {
         formData.append('image', image);
 
         try {
-            await axios.post('http://localhost:2000/api/garbage-report', formData, {
+            await axios.post('https://trash-tracker-backend.vercel.app/api/garbage-report', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
